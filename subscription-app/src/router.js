@@ -1,28 +1,31 @@
 import Vue from 'vue'
-import Router from 'vue-router'
+import VueRouter from 'vue-router'
+import Index from '@/components/Index'
+import Edit from '@/components/Edit'
+import Create from '@/components/Create'
 
-Vue.use(Router)
+Vue.use(VueRouter)
 
-export default new Router({
+export default new VueRouter({
   routes: [
     {
-      path: "/",
+      path: '/',
       redirect: '/index'
     },
     {
-      path: "/create",
-      name: "create",
-      component: () => import("./components/Create.vue")
+      path: '/create',
+      name: 'create',
+      component: Create
     },
     {
-      path: "/edit/:id",
-      name: "edit",
-      component: () => import("./components/Edit.vue")
+      path: '/edit/:id',
+      name: 'edit',
+      component: Edit
     },
     {
-      path: "/index",
-      name: "index",
-      component: () => import("./components/Index.vue")
-    },
+      path: '/index',
+      name: 'index',
+      component: Index
+    }
   ]
-});
+})
